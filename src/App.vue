@@ -48,7 +48,6 @@
   export default {
     data () {
       return {
-        // appTitle: 'Awesome App',
         sidebar: false,
         menuItems: [
           { title: 'Home', path: '/home', icon: 'home' },
