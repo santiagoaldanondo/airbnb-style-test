@@ -2,7 +2,7 @@
   <v-card>
     <v-card-title>{{ value.title }}</v-card-title>
       <v-card-text v-if="value.info" class="text-xs-left code">{{ value.info }}</v-card-text>
-      <v-radio-group v-model="answer">
+      <v-radio-group v-model="value.answer">
         <v-radio 
           v-for="option in value.options"
           :key="option.content"
@@ -15,16 +15,15 @@
 </template>
 <script>
   export default {
-    props: {
-      value: {
-        type: Object,
-        required: true
+    props: [ 'value' ],
+    methods: {
+      setAnswer(val) {
+        this.value.answer = val;
       },
-      answer: ''
     },
     watch: {
       value() {
-        this.$emit('input', this.answer);
+        this.setAnswer(this.value.answer);
       }
     }
   }

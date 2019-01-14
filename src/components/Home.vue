@@ -32,8 +32,7 @@ export default {
   components: { Question },
   data () {
     return {
-      answers: {},
-      alert: null
+      alert: null,
     }
   },
   watch: {
@@ -60,11 +59,14 @@ export default {
     }
   },
   methods: {
-    submitTest () {
-      if (this.comparePasswords !== true) {
-        return
+    prepareAnswers ({name, answer}) {
+      return {
+        name,
+        answer
       }
-      this.$store.dispatch('submitTest', { options: this.options })
+    },
+    submitTest () {
+      this.$store.dispatch('submitTest', this.questions.map(this.prepareAnswers))
     }
   }
 }

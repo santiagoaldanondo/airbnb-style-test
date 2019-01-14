@@ -1,4 +1,5 @@
 const question1 = {
+  name: 'question1',
   topic: 'Objects',
   title: 'What is the correct way to instantiate an object?',
   options: [{
@@ -15,6 +16,7 @@ const question1 = {
 };
 
 const question2 = {
+  name: 'question2',
   topic: 'Objects',
   title: 'Given the following function, what is the correct way for creating an object with that dynamic property name?',
   info: `
@@ -45,6 +47,7 @@ const obj = {
 };
 
 const question3 = {
+  name: 'question3',
   topic: 'Objects',
   title: 'How would you properly use object method shorthand?',
   options: [{
@@ -75,6 +78,7 @@ const atom = {
 };
 
 const question4 = {
+  name: 'question4',
   topic: 'Objects',
   title: 'Given the following, how should you group shorthand properties?',
   info: `
@@ -106,6 +110,7 @@ const obj = {
 };
 
 const question5 = {
+  name: 'question5',
   topic: 'Arrays',
   title: 'How would you copy the following array?',
   info: `
@@ -132,6 +137,7 @@ for (i = 0; i < len; i++) {
 };
 
 const question6 = {
+  name: 'question6',
   topic: 'Destructuring',
   title: 'Which approach is better?',
   options: [{
@@ -157,6 +163,7 @@ function getFullName(user) {
 };
 
 const question7 = {
+  name: 'question7',
   topic: 'Destructuring',
   title: 'If your function needs to return multiple values, what would you choose?',
   options: [{
@@ -180,7 +187,7 @@ function processInput(input) {
   }],
 };
 
-export default {
+export default [
   question1,
   question2,
   question3,
@@ -188,4 +195,4 @@ export default {
   question5,
   question6,
   question7,
-};
+];
