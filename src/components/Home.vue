@@ -5,22 +5,32 @@
         <h1>Home page</h1>
       </v-flex>
       <v-flex xs12 class="text-xs-center" mt-3>
-        <form @submit.prevent="submitTest">
+        <v-form ref="form" @submit.prevent="submitTest">
+          <question 
+            v-for="(question, index) in questions"
+            :key="index"
+            v-model="questions[index]"
+            >
+          </question>
+          <v-text-field 
+            v-model="email" 
+            required
+            :rules="emailRules"
+            label="E-mail"
+          >
+          </v-text-field>
           <v-alert type="error" dismissible v-model="alert">
             {{ error }}
           </v-alert>
-          <div
-            <question 
-              v-for="(question, index) in questions"
-              :key="index"
-              v-model="questions[index]"
-              >
-            </question>
-          </div>
+          <v-progress-circular
+            v-if="loading"
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
           <v-flex class="text-xs-center" mt-5>
             <v-btn color="primary" type="submit" :disabled="loading"> Submit </v-btn>
           </v-flex>
-        </form>
+        </v-form>
       </v-flex>
     </v-layout>
   </v-container>
@@ -32,7 +42,13 @@ export default {
   components: { Question },
   data () {
     return {
+      valid: false,
       alert: null,
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ]
     }
   },
   watch: {
@@ -59,14 +75,21 @@ export default {
     }
   },
   methods: {
-    prepareAnswers ({name, answer}) {
-      return {
-        name,
-        answer
+    prepareAnswers (obj) {
+      const response = {
+        name: obj.name,
+        answer: obj.answer
       }
+      delete obj.answer;
+      return response;
     },
     submitTest () {
-      this.$store.dispatch('submitTest', this.questions.map(this.prepareAnswers))
+      if (!this.$refs.form.validate()) return;
+      this.$store.dispatch('submitTest', {
+          email: this.email,
+          main: 'airbnb-style',
+          answers: this.questions.map(this.prepareAnswers)
+        })
     }
   }
 }

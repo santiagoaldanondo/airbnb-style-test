@@ -15,16 +15,6 @@
 </template>
 <script>
   export default {
-    props: [ 'value' ],
-    methods: {
-      setAnswer(val) {
-        this.value.answer = val;
-      },
-    },
-    watch: {
-      value() {
-        this.setAnswer(this.value.answer);
-      }
-    }
+    props: [ 'value' ]
   }
 </script>
