@@ -43,7 +43,9 @@ export default new Vuex.Store({
         .then((data) => {
           commit('setLoading', false);
           commit('setError', null);
-          if (data.statusCode !== 200) throw new Error(data.message);
+          if (data.statusCode !== 200) {
+            throw new Error(data.message);
+          }
           router.push('/');
         }).catch((error) => {
           commit('setError', getErrorMessage(error));

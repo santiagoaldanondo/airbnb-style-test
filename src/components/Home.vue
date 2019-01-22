@@ -1,33 +1,35 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs12 class="text-xs-center" mt-5>
+      <v-flex xs10 offset-xs1 class="text-xs-center">
         <h1>Home page</h1>
       </v-flex>
-      <v-flex xs12 class="text-xs-center" mt-3>
+      <v-flex xs10 offset-xs1 class="text-xs-center">
         <v-form ref="form" @submit.prevent="submitTest">
-          <question 
+          <question xs10 offset-xs1 class="text-xs-center"
             v-for="(question, index) in questions"
             :key="index"
             v-model="questions[index]"
             >
           </question>
-          <v-text-field 
-            v-model="email" 
-            required
-            :rules="emailRules"
-            label="E-mail"
-          >
-          </v-text-field>
+          <v-flex xs8 offset-xs2>
+            <v-text-field mt-5 class="text-xs-center"
+              v-model="email" 
+              required
+              :rules="emailRules"
+              label="E-mail"
+            >
+            </v-text-field>
+          </v-flex>
           <v-alert type="error" dismissible v-model="alert">
             {{ error }}
           </v-alert>
-          <v-progress-circular
+          <v-progress-circular xs10 offset-xs1 class="text-xs-center"
             v-if="loading"
             indeterminate
             color="primary"
           ></v-progress-circular>
-          <v-flex class="text-xs-center" mt-5>
+          <v-flex xs10 offset-xs1 class="text-xs-center">
             <v-btn color="primary" type="submit" :disabled="loading"> Submit </v-btn>
           </v-flex>
         </v-form>
