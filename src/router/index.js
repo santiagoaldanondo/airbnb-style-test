@@ -5,10 +5,7 @@ import Router from 'vue-router';
 
 const routerOptions = [
   { path: '/', component: 'Landing' },
-  { path: '/home', component: 'Home' },
-  { path: '/signup', component: 'SignUp' },
-  { path: '/signin', component: 'SignIn' },
-  { path: '/airbnbtest', component: 'AirbnbTest' },
+  { path: '/test', component: 'Test' },
   { path: '/results', component: 'Results' },
 ];
 

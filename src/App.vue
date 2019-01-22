@@ -50,8 +50,8 @@
       return {
         sidebar: false,
         menuItems: [
-          { title: 'Home', path: '/home', icon: 'home' },
-          { title: 'Sign Up', path: '/signup', icon: 'face' },
+          { title: 'Test', path: '/test', icon: 'accessibility_new' },
+          { title: 'Results', path: '/results', icon: 'drafts' },
         ]
       }
     },

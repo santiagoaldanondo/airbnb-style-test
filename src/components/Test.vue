@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs10 offset-xs1 class="text-xs-center">
-        <h1>Home page</h1>
+        <h1>Test</h1>
       </v-flex>
       <v-flex xs10 offset-xs1 class="text-xs-center">
         <v-form ref="form" @submit.prevent="submitTest">
@@ -44,7 +44,6 @@ export default {
   components: { Question },
   data () {
     return {
-      valid: false,
       alert: null,
       email: '',
       emailRules: [
@@ -98,6 +97,9 @@ export default {
 </script>
 
 <style>
+  .v-text-field {
+    margin: 20px 0px; 
+  }
   .code .theme--light.v-label {
     font-family: monospace;
     white-space: pre;
