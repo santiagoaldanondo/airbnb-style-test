@@ -43,9 +43,11 @@ export default new Vuex.Store({
         .then((data) => {
           commit('setLoading', false);
           commit('setError', null);
-          if (data.statusCode !== 200) {
-            throw new Error(data.message);
-          }
+          // TODO: Use axios to handle errors because I don't see statusCode with fetch
+          // if (data.statusCode !== 200) {
+          //   throw new Error(data.message);
+          // }
+          console.log(data);
           router.push('/');
         }).catch((error) => {
           commit('setError', getErrorMessage(error));
