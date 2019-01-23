@@ -40,10 +40,15 @@ export default new Vuex.Store({
     setTotal(state, payload) {
       state.total = payload;
     },
+    resetScoreAndTotal(state) {
+      state.score = 0;
+      state.total = 0;
+    },
   },
   actions: {
     async submitTest({ commit }, payload) {
       commit('setLoading', true);
+      commit('resetScoreAndTotal');
       try {
         await axios.post(`${API}/test`, {
           method: 'POST',
@@ -59,8 +64,7 @@ export default new Vuex.Store({
     },
     async getResults({ commit }, payload) {
       commit('setLoading', true);
-      commit('setTotal', 0);
-      commit('setScore', 0);
+      commit('resetScoreAndTotal');
       try {
         const result = await axios.post(`${API}/results`, {
           method: 'POST',
