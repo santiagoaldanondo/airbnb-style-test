@@ -1,7 +1,12 @@
 <template>
-  <v-card>
-  <v-card-title>{{ value.title }}</v-card-title>
-    <v-card-text v-if="value.info" class="text-xs-left code">{{ value.info }}</v-card-text>
+  <v-card class="my-card">
+  <v-icon color="green darken-2" class="my-icon">pan_tool</v-icon>
+  <v-card-title class ="my-title">
+      {{ value.title }}
+    </v-card-title>
+    <v-card-text v-if="value.info" class="text-xs-left code my-text">
+      {{ value.info }}
+    </v-card-text>
     <v-radio-group v-model="value.answer">
       <v-radio
         v-for="option in value.options"
@@ -23,31 +28,27 @@
 
 <style>
 
-.v-card {
-  padding-left: 30px;
+.my-icon {
+  padding: 30px 0px 5px 0px;
 }
 
-.v-card__title {
-  padding: 35px 0px 0px 20px;
+.my-card {
   margin-top: 30px;
-  font-size: 18px;
+  padding-left: 50px;
 }
 
-.v-card__text {
-  padding: 5px 0px 5px 20px;
-}
-
-.v-label {
-  font-size: 14px;
-  padding-left: 10px;
-}
-
-.v-input {
+.my-title {
+  padding: 10px 0px 5px 0px;
   margin-top: 30px;
-  margin-bottom: 10px;
-  padding-top: 20px;
-  padding-left: 20px;
-  margin: 0;
+  font-size: 1.2em;
+}
+
+.my-text {
+  padding: 0px 0px 5px 10px;
+}
+
+.my-card label {
+  font-size: 0.9em;
 }
 
 </style>

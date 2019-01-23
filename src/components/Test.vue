@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs10 offset-xs1 class="text-xs-center">
+      <v-flex xs12 class="text-xs-center" mt-5>
         <h1>Test</h1>
       </v-flex>
       <v-flex xs10 offset-xs1 class="text-xs-center">

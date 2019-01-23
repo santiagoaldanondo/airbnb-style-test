@@ -17,12 +17,10 @@ s<template>
                 label="E-mail"
               >
               </v-text-field>
-                <v-card v-if="total" xs10 offset-xs1>
-                  <v-card-title>Your Score!!</v-card-title>
-                    <v-card-text>
-                      {{ score }} / {{ total }}
-                    </v-card-text>
-                </v-card>
+                <v-flex v-if="total" xs10 offset-xs1 class="text-xs-center">
+                  <h3>Your Score!!</h3>
+                    <p>{{ score }} / {{ total }}</p>
+                </v-flex>
               <v-alert type="error" dismissible v-model="alert">
                 {{ error }}
               </v-alert>
