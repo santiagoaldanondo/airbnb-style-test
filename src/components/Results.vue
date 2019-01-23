@@ -18,8 +18,10 @@ s<template>
               >
               </v-text-field>
                 <v-flex v-if="total" xs10 offset-xs1 class="text-xs-center">
-                  <h3>Your Score!!</h3>
-                    <p>{{ score }} / {{ total }}</p>
+                  <h3>You Scored: {{ score }} / {{ total }}</h3>
+                  <p>Check airbnb-style in
+                    <a href="https://github.com/airbnb/javascript"> github </a>
+                  for the complete guide!!</p>
                 </v-flex>
               <v-alert type="error" dismissible v-model="alert">
                 {{ error }}
